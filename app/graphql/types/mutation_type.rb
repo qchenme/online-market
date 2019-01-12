@@ -2,11 +2,10 @@ module Types
   class MutationType < Types::BaseObject
     description "Root mutation"
     
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World"
-    end
+    field :create_product, mutation: Mutations::CreateProduct, description: "Add a new product"
+    field :update_product, mutation: Mutations::UpdateProduct, description: "Update existing product information"
+    field :purchase_product, mutation: Mutations::PurchaseProduct, description: "Purchase product"
+    field :delete_product, mutation: Mutations::DeleteProduct, description: "Delete a product"
+
   end
 end
