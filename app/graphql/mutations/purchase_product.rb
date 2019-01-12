@@ -10,10 +10,18 @@ module Mutations
 
     def resolve(id:, amount:)
       product = Product.find(id)
-      # TODO: Check amount <= inventory_count
-      # TODO: Check inventory_count > 0
-      newCount = product.inventory_count-amount
 
+      # Validate:
+      # (1) inventory_count > 0
+      # (2)amount <= inventory_count
+      if product.inventory_count <= 0
+        raise GraphQL::ExecutionError, "The product with id #{product.id} is out of stock."
+      end
+      if product.inventory_count < amount
+        raise GraphQL::ExecutionError, "Unable to buy #{amount} because the product only have #{product.inventory_count} left."
+      end
+
+      newCount = product.inventory_count-amount
       # Call parent update method
       super(id: id, inventory_count: newCount)
     end
