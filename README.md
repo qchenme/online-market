@@ -154,14 +154,3 @@ mutation{
 - `Cart` can have many `CartItem`s with different quantities. The sum of all `CartItem`s' prices gives the `total_value`.
 - When a `Cart` is deleted, all of its `CartItem`s will be deleted at the same time.
 
-## Improvements
-
-- Add tests
-- Consider a realistic online market, there would be more information involved including
-  - Feature-wise:
-    - More data, e.g. Users (Authentification required).
-    - Handle payment.
-    - Filter feature: search product by keyword, sort, etc.
-  - Tech-wise:
-    - Management of large amount of data - Consider Pagination, Batch, etc.
-    - Secure API - Consider Timeout, Max Query depth, etc.
