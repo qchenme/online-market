@@ -1,5 +1,5 @@
 module Mutations
-  class PurchaseProduct <  Mutations::UpdateProduct
+  class PurchaseProduct <  Mutations::BaseMutation
     null true
 
     argument :id, ID, required: true
@@ -13,7 +13,7 @@ module Mutations
 
       # Validate:
       # (1) inventory_count > 0
-      # (2)amount <= inventory_count
+      # (2) amount <= inventory_count
       if product.inventory_count <= 0
         raise GraphQL::ExecutionError, "The product with id #{product.id} is out of stock."
       end
@@ -22,8 +22,17 @@ module Mutations
       end
 
       newCount = product.inventory_count-amount
-      # Call parent update method
-      super(id: id, inventory_count: newCount)
+      if product.update(inventory_count: newCount)
+        {
+          product: product,
+          errors: [],
+        }
+      else
+        {
+          product: nil,
+          errors: product.errors.full_messages
+        }
+      end
     end
   end
 end

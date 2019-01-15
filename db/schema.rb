@@ -12,7 +12,8 @@
 
 ActiveRecord::Schema.define(version: 2019_01_12_221401) do
 
-  create_table "cart_items", force: :cascade do |t|
+  create_table "cart_items", id: false, force: :cascade do |t|
+    t.string "id", null: false
     t.integer "product_id", null: false
     t.integer "cart_id", null: false
     t.integer "quantity", null: false
@@ -30,9 +31,9 @@ ActiveRecord::Schema.define(version: 2019_01_12_221401) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "title", null: false
-    t.decimal "price", null: false
-    t.integer "inventory_count", null: false
+    t.string "title"
+    t.decimal "price"
+    t.integer "inventory_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

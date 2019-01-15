@@ -1,4 +1,5 @@
 class CartItem < ApplicationRecord
-  belongs_to :cart
-  belongs_to :product
+  self.primary_key = :id
+  belongs_to :cart, validate: true
+  belongs_to :product, validate: true
 end

@@ -1,6 +1,7 @@
 class CreateCartItems < ActiveRecord::Migration[5.2]
   def change
-    create_table :cart_items do |t|
+    create_table :cart_items, id: false do |t|
+      t.string :id, null: false
       t.references :product, null: false, foreign_key: true
       t.references :cart, null: false, foreign_key: true
       t.integer :quantity, null: false

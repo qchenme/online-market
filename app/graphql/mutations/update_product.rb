@@ -16,9 +16,7 @@ module Mutations
       title = product.title unless title
       price = product.price unless price
       inventory_count = product.inventory_count unless inventory_count
-      
-      # TODO: handle inventory_count < 0 exception
-      
+            
       if product.update(title: title, price: price, inventory_count: inventory_count)
         {
           product: product,
