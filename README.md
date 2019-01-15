@@ -2,7 +2,7 @@
 
 Clone repository to local
 ```sh
-$ git clone 
+$ git clone https://github.com/qchenme/online_market
 ```
 Install dependencies
 ```sh
@@ -141,3 +141,5 @@ mutation{
   }
 }
 ```
+### Data schema
+[[https://github.com/qchenme/online_market/master/pic/schema.jpg|alt=schema]]
