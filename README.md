@@ -142,4 +142,4 @@ mutation{
 }
 ```
 ### Data schema
-[[https://github.com/qchenme/online_market/master/pic/schema.jpg|alt=schema]]
+![schema](./pic/schema.jpg)
