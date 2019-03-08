@@ -31,7 +31,7 @@ $ open http://localhost:3000/
 | ------ | ------ | ------ |
 | allProducts | optional: onlyAvailable | Get all products, if onlyAvailable = true, return all products that are in stock.
 | product | **id** | Get product with the id specified. |
-| allCarts |  | Get all carts |
+| allCarts |  | Get all carts. |
 | cart | **id** | Get cart with the id specified. |
 | cartItem | **id** | Get cart item with the id specified. |
 
@@ -42,7 +42,7 @@ $ open http://localhost:3000/
 | createProduct | **title**, **price**, optional: inventoryCount(default = 0) | Create a new product with title and name specified. If no inventoryCount is passed, it will default to 0. |
 | updateProduct | **id**, optional: title, optional:  price, optional:  inventoryCount | Update product information. |
 | purchaseProduct | **id**, optional: amount(default = 1) | Purchase a product with any amount specified. If no amount is passed, it will default to 1. |
-| deleteProduct | **id**| Delete a product |
+| deleteProduct | **id**| Delete a product. |
 | createCart |  | Create a new, empty cart. |
 | completeCart | **id** | Purchase all the items in the cart. |
 | deleteCart | **id** | Delete a cart. |
